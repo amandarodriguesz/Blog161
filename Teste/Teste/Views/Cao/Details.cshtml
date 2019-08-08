@@ -1,0 +1,30 @@
+﻿@model Teste.Models.Cao
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Cao</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dono)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dono.DonoId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CachorroId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
