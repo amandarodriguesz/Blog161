@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Blog.Models.Mensagem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listagem</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-dark">Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Título)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataMensagem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Título)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataMensagem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Descricao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MensagemId" class="btn btn-default">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.MensagemId" class="btn btn-default">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.MensagemId" class="btn btn-default"> Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
