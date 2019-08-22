@@ -4,9 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Blog.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-    public class BlogContext : DbContext
-    {
+public class BlogContext : IdentityDbContext<User>
+{
         public BlogContext (DbContextOptions<BlogContext> options)
             : base(options)
         {
